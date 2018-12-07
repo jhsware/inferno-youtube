@@ -1,3 +1,13 @@
 language: node_js
 node_js:
-  - "6.10.2"
+  - '6.14'
+  - '8.12'
+  - '10.10'
+deploy:
+  provider: npm
+  email: sebastian@urbantalk.se
+  api_key:
+    secure: pj/EVtdLuU+ZjIj3Fkrq3EgIZ/pQEswhb8fmcdHD5p/tV/bmL2S3g8rOQ1O3gzOxJIpBLlKCeBW4YiEMd8yNHpKcIMMDF99KHKb9UR+BCsr+A8ID8/9T/eOC7uHCn+lduP1AZUam45nFqE9TQGQS3yZmaGJ2QxdExOrjjS1qiNKHXopsLVjrlkmYl73ER5qoUz2YJNkVi3zUforQSsVos0qaaq2QUhtwShKUNsJajq9HBorr4wnzWHtPyMyH7Q3Blm1Utkyh8G06LZDZwsnDaiMLAhEtc85qDJiyEMfy2VnC9oZI64dsbUGQjpBYuqdPSgoj4xJXGPL94JPMFtHauUc8/J3qjmCgbuwtELiT+0hbcN/eYH5VMDQFd+2xyIbl8+AHqdUl51RmjPNcP8HS8nVcY1BLZBK4VrpJRQCC+qAyzJ8lO+xuNU6fIDFRC1IO8+jSrS7Hsz/MTXKbTJ2WEFd3qQ+i7BVAxHt+2qtnDJ2GoRgNJtsJcrYTlnJ+j3o3sROd11yTi4twcsOhBadIGqSsOiQ4inljPzbmbVPh0F1zLXqozR58wo8WtWT9BvnLDbKzeeLld6RxgSxdNRJbFxn2vslkirdS8tyIl03/39edBU/yK/ffIsK8gv8Bx90Lj60BmXWMSz9UNjUwSKQVqGKht521c+9V+ufH/A9JUqU=
+  on:
+    tags: true
+    repo: jhsware/inferno-youtube

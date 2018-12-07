@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import isEqual from 'fast-deep-equal';
-import youTubePlayer from 'youtube-player';
+import { Component } from 'inferno';
+const youTubePlayer = require('youtube-player');
+const isEqual = require('fast-deep-equal');
 
 /**
  * Check whether a `props` change should result in the video being updated.
@@ -70,7 +69,8 @@ function shouldUpdatePlayer(prevProps, props) {
   );
 }
 
-class YouTube extends React.Component {
+class YouTube extends Component {
+  /*
   static propTypes = {
     videoId: PropTypes.string.isRequired,
 
@@ -95,6 +95,7 @@ class YouTube extends React.Component {
     onPlaybackRateChange: PropTypes.func,
     onPlaybackQualityChange: PropTypes.func,
   };
+  */
 
   static defaultProps = {
     id: null,
@@ -302,11 +303,16 @@ class YouTube extends React.Component {
   };
 
   render() {
-    return (
-      <div className={this.props.containerClassName}>
-        <div id={this.props.id} className={this.props.className} ref={this.refContainer} />
-      </div>
-    );
+    if (this.props.containerClassName || this.props.children) {
+      return (
+        <div className={this.props.containerClassName}>
+          <div id={this.props.id} className={this.props.className} ref={this.refContainer} />
+          {this.props.children}
+        </div>
+      );
+    } else {
+      return <div id={this.props.id} className={this.props.className} ref={this.refContainer} />
+    }
   }
 }
 

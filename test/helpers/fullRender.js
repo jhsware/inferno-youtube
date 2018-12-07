@@ -2,8 +2,7 @@
  * Module dependencies
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { Component, render } from 'inferno';
 import setupYouTube from './setupYouTube';
 
 /**
@@ -21,7 +20,7 @@ const fullRender = (props) => {
    * Emulate changes to component.props using a container component's state
    */
 
-  class Container extends React.Component {
+  class Container extends Component {
     constructor(_props) {
       super(_props);
 
@@ -35,7 +34,7 @@ const fullRender = (props) => {
   }
 
   const div = document.createElement('div');
-  const container = ReactDOM.render(<Container { ...props } />, div);
+  const container = render(<Container { ...props } />, div);
 
   function rerender(newProps) {
     container.setState(newProps);

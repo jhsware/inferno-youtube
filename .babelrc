@@ -1,7 +1,26 @@
 {
   "presets": [
-    "./build/preset-es2015",
-    "react",
-    "stage-0"
-  ]
+    ["@babel/env", { "modules": false }]
+  ],
+  "plugins": [
+    ["@babel/proposal-decorators", { "legacy": true}],
+    "@babel/proposal-class-properties",
+    "@babel/transform-runtime",
+    "@babel/syntax-jsx",
+    [
+      "babel-plugin-inferno",
+      {
+        "imports": true
+      }
+    ]
+  ],
+  "env": {
+    "production": {},
+    "test": {
+      "presets": [
+        ["@babel/env", { "modules": false }],
+        "inferno-app"
+      ]
+    }
+  }
 }
