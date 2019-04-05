@@ -8,20 +8,18 @@
   "scripts": {
     "test": "npm run build && npm run build-test",
     "test-browser": "npm run build-test && node test/server.js",
-    "prepublish": "NODE_ENV=development npm run build",
+    "_test": "echo \"TODO: Write tests...\"",
+    "start": "inferno-scripts start",
+    "prepublish": "npm run build",
     "postversion": "git push && git push --tags",
-    "build-dev": "rm -rf ./dist && cross-env NODE_ENV=development babel lib --out-dir dist --watch --source-maps",
-    "build-test": "rm -rf ./test/dist && cross-env NODE_ENV=test node_modules/.bin/webpack --config ./test/webpack.config.js",
-    "build-test-dev": "rm -rf ./test/dist && cross-env NODE_ENV=test node_modules/.bin/webpack --watch --config ./test/webpack.config.js",
-    "build": "npm run build:es && npm run build:dist && npm run build:dist:prod & npm run build:legacy",
+    "build-dev": "rm -rf ./dist && NODE_ENV=development babel src --out-dir lib --watch --source-maps",
+    "build": "npm run build:clean && npm run build:es && npm run build:dist && npm run build:dist:prod",
     "build:clean": "rm -rf dist/ && rm -rf lib/",
-    "build:es": "cross-env NODE_ENV=development babel src --out-dir lib",
+    "build:es": "cross-env NODE_ENV=development babel src --out-dir lib --source-maps",
     "build:dist": "cross-env NODE_ENV=development rollup -c",
     "build:dist:prod": "cross-env NODE_ENV=production rollup -c",
-    "build:legacy": "cross-env NODE_ENV=production babel src --out-dir dist",
-    "prepare": "npm run build",
-    "precommit": "lint-staged",
-    "lint": "eslint --ext .js,.jsx src/ example/"
+    "build-test": "rm -rf ./test/dist && NODE_ENV=test node_modules/.bin/webpack --mode=development --config ./test/browser/webpack.config.js",
+    "build-test-dev": "rm -rf ./test/dist && NODE_ENV=test node_modules/.bin/webpack --mode=development --watch --config ./test/browser/webpack.config.js"
   },
   "repository": {
     "type": "git",
