@@ -1,6 +1,6 @@
 {
   "name": "inferno-youtube",
-  "version": "7.0.0-beta.1",
+  "version": "7.0.0-beta.2",
   "description": "inferno.js powered YouTube player component",
   "main": "dist/index.cjs.js",
   "umd:main": "dist/index.umd.js",
